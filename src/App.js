@@ -1,14 +1,12 @@
 import './App.css';
 import Header from './components/header';
 import Map from './components/map';
+import Sidebar from './components/sidebar';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      {/* <h1 className="heder">Geo tracking web applications</h1>
-      <p>Welcome to the device trackiing up</p> */}
-      {/* <Map isMarkerShown /> */}
+      <Sidebar />
       <Map isMarkerShown />
     </div>
   );
