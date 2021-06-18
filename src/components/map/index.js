@@ -1,4 +1,6 @@
+import React, { useContext } from 'react';
 import { compose, withProps } from 'recompose';
+import { AppContext } from '../../context/context';
 import {
   GoogleMap,
   Marker,
@@ -19,12 +21,20 @@ const Map = compose(
   }),
   withScriptjs,
   withGoogleMap,
-)(props => (
-  <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-    {props.isMarkerShown && (
-      <Marker position={{ lat: -34.397, lng: 150.644 }} />
-    )}
-  </GoogleMap>
-));
+)(props => {
+  const locations = useContext(AppContext);
+  return (
+    <GoogleMap
+      defaultZoom={8}
+      defaultCenter={{ lat: 8.9891271, lng: 38.7719433 }}
+    >
+      {props.isMarkerShown && (
+        <Marker
+          position={{ lat: locations.latitude, lng: locations.longitude }}
+        />
+      )}
+    </GoogleMap>
+  );
+});
 
 export default Map;

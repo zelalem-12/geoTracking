@@ -11,19 +11,19 @@ const Sidebar = () => {
           </a>
         </li>
         <li class="has-subnav">
-          <a href="#">
+          <a href="http://justinfarrow.com">
             <i class="fa fa-laptop fa-2x"></i>
             <span class="nav-text">Device One</span>
           </a>
         </li>
         <li class="has-subnav">
-          <a href="#">
+          <a href="http://justinfarrow.com">
             <i class="fa fa-list fa-2x"></i>
             <span class="nav-text">Device Two</span>
           </a>
         </li>
         <li class="has-subnav">
-          <a href="#">
+          <a href="http://justinfarrow.com">
             <i class="fa fa-folder-open fa-2x"></i>
             <span class="nav-text">Device Three</span>
           </a>
@@ -32,7 +32,7 @@ const Sidebar = () => {
 
       <ul class="logout">
         <li>
-          <a href="#">
+          <a href="http://justinfarrow.com">
             <i class="fa fa-power-off fa-2x"></i>
             <span class="nav-text">Logout</span>
           </a>
