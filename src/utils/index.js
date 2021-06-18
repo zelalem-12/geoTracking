@@ -1,10 +1,16 @@
 import qs from 'qs';
 import { encode } from 'base-64';
 
-const apiCall = async (method, url, credential, queryParams = undefined) => {
+const apiCall = async (
+  method,
+  url,
+  credential,
+  queryParams = null,
+  contentType = 'application/json',
+) => {
   let theUrl = url;
   const headers = {
-    'Content-Type': 'application/json',
+    'Content-Type': contentType,
   };
   let queryString = null;
   if (queryParams && queryParams !== {}) {
@@ -22,8 +28,12 @@ const apiCall = async (method, url, credential, queryParams = undefined) => {
       method,
       headers,
     });
-    const locatoin_data = await response.json();
-    return locatoin_data;
+    if (response.status === 200) {
+      const locatoin_data = await response.json();
+      return locatoin_data;
+    } else {
+      console.log({ response });
+    }
   } catch (error) {
     throw error;
   }

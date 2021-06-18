@@ -10,12 +10,16 @@ const ContextAPI = props => {
   });
 
   const getLocation = async () => {
-    const credential = {
-      username: 'zelalem.antigen12@gmail.com',
-      password: 'adsads12',
-    };
+    let username = '';
+    let password = '';
+    try {
+      username = localStorage.getItem('username');
+      password = localStorage.getItem('password');
+    } catch (err) {
+      console.log('un able to read token', err);
+    }
     const url = 'https://demo.traccar.org/api/positions';
-    const result = await apiCall('GET', url, credential);
+    const result = await apiCall('GET', url, { username, password });
     const { latitude, longitude } = result[0];
     console.log({ result });
     setLocations({ latitude, longitude });
